@@ -1,0 +1,117 @@
+body {
+    background-image: url("../img/backg.jpg");
+    background-color: rgb(166, 170, 172);
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 1200px;
+}
+
+main {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#map {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background-color: rgba(254, 254, 254, 0.3);
+    margin-top: 50px;
+}
+#bomberman{
+    width:50px;
+    height:50px;
+    background-image: url('../img/down.png');
+    background-size: 50px;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+}
+
+.wall {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.cadre {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('../img/door.png');
+    background-size: cover;
+    
+}
+
+
+.floor {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+#bomb {
+    position: absolute;
+    background-image: url('../img/bomb.svg');
+    display: none;
+    width: 50px;
+    height: 50px;
+}
+
+.explosion {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+#ennemie {
+    position: absolute;
+    background-image: url('..img/ennemie.svg');
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    left: 100px;
+}
+
+#playerwin {
+    position: absolute;
+    display: none;
+    width: 600px;
+    height: 400px;
+    top: 50px;
+    left: 50px;
+    font-family: Verdana, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    background-color:rgb(166, 170, 172, 0.6);
+    z-index: 10000;
+}
+
+#playerlose {
+    position: absolute;
+    display: none;
+    width: 600px;
+    height: 400px;
+    top: 50px;
+    left: 50px;
+    font-family: Verdana, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    background-color:rgb(166, 170, 172, 0.6);
+    z-index: 10000;
+    align-items: center;
+}
+
+h1{
+    color: blue;
+    top: 250px;
+    left: 150px;
+}
+
+a{
+    text-decoration: none;
+}
