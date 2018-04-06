@@ -3,31 +3,31 @@ body {
     background-color: rgb(166, 170, 172);
     background-size: cover;
     background-repeat: no-repeat;
-    max-height: 1200px;
+    height: 100%;
 }
 
-main {
+section {
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 #map {
     position: relative;
-    width: 700px;
-    height: 500px;
+    width: 900px;
+    height: 550px;
     background-color: rgba(254, 254, 254, 0.3);
     margin-top: 50px;
 }
 #bomberman{
     width:50px;
     height:50px;
-    background-image: url('../img/down.png');
+    background-image: url('../img/h-down.png');
     background-size: 50px;
     position: absolute;
-    top: 200px;
-    left: 300px;
+    top: 250px;
+    left: 450px;
 }
 
 .wall {
@@ -70,48 +70,61 @@ main {
 
 #ennemie {
     position: absolute;
-    background-image: url('..img/ennemie.svg');
+    background-image: url('..img/m-down.png');
     width: 50px;
     height: 50px;
-    top: 100px;
-    left: 100px;
+    bottom: 100px;
+    right: 100px;
+    z-index: 10;
 }
 
 #playerwin {
     position: absolute;
     display: none;
-    width: 600px;
-    height: 400px;
+    width: 800px;
+    height: 500px;
     top: 50px;
     left: 50px;
     font-family: Verdana, sans-serif;
     font-size: 30px;
     text-align: center;
     background-color:rgb(166, 170, 172, 0.6);
-    z-index: 10000;
+    z-index: 7000;
 }
 
 #playerlose {
     position: absolute;
     display: none;
-    width: 600px;
-    height: 400px;
+    width: 800px;
+    height: 500px;
     top: 50px;
     left: 50px;
     font-family: Verdana, sans-serif;
     font-size: 25px;
     text-align: center;
     background-color:rgb(166, 170, 172, 0.6);
-    z-index: 10000;
-    align-items: center;
+    z-index: 7000;
 }
 
-h1{
-    color: blue;
-    top: 250px;
+.popus h1{
+    color: rgb(11, 11, 34);
+    animation: color 0.08s infinite;
+    top: 750px;
     left: 150px;
 }
 
 a{
     text-decoration: none;
+    color: black;
 }
+a:hover{
+    color: brown;
+}
+
+#winp{
+    width: 250px;
+    height: 250px;
+}
+
+
+   

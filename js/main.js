@@ -1,19 +1,21 @@
 const map = document.getElementById('map');
 const bomberman = document.getElementById("bomberman");
-const bomb = document.getElementById("bomb");
+const bomb = document.getElementById("bomb"); 
  
 // Creation Map
 var grille = [
-    [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-    [3, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
-    [3, 1, 1, 1, 2, 1, 2, 2, 2, 1, 2, 1, 1, 3],
-    [3, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 3],
-    [3, 2, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 3],
-    [3, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 3],
-    [3, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 3],
-    [3, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3],
-    [3, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 3],
-    [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+    [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+    [3, 1, 2, 1, 3, 1, 2, 1, 3, 1, 2, 1, 1, 1, 1, 1, 1, 3],
+    [3, 1, 3, 1, 1, 1, 3, 1, 3, 2, 3, 3, 3, 3, 2, 3, 3, 3],
+    [3, 2, 3, 2, 2, 2, 2, 2, 3, 1, 3, 1, 2, 1, 1, 3, 2, 3],
+    [3, 1, 3, 1, 3, 3, 2, 1, 2, 1, 3, 1, 2, 1, 1, 3, 1, 3],
+    [3, 1, 3, 1, 3, 2, 2, 3, 3, 1, 3, 2, 3, 2, 1, 3, 1, 3],
+    [3, 1, 3, 1, 3, 3, 3, 2, 3, 3, 3, 1, 2, 1, 2, 3, 1, 3],
+    [3, 1, 3, 2, 1, 2, 2, 2, 2, 1, 2, 1, 3, 1, 1, 3, 1, 3],
+    [3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3],
+    [3, 1, 3, 1, 2, 1, 3, 1, 1, 2, 1, 1, 3, 1, 1, 1, 1, 3],
+    [3, 1, 2, 1, 3, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3],
+    [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
 ];
 
 function afficherMap() {
@@ -23,9 +25,9 @@ function afficherMap() {
     var floor;
     var cadre; 
 
-    for (x = 0; x < 14; x++) {
+    for (x = 0; x < 18; x++) {
 
-        for (y = 0; y < 10; y++) {
+        for (y = 0; y < 12; y++) {
 
             if (grille[y][x] === 3) {   // Cadre
 
@@ -34,7 +36,7 @@ function afficherMap() {
                 map.appendChild(cadre);
                 cadre.style.top = y * 50 + "px";
                 cadre.style.left = x * 50 + "px";
-                cadre.style.backgroundImage = "url('img/wall.png')";
+                cadre.style.backgroundImage = "url('img/owall.png')";
 
             } if (grille[y][x] === 2) {                   // Mur
                 wall = document.createElement("div");
@@ -42,7 +44,7 @@ function afficherMap() {
                 map.appendChild(wall);
                 wall.style.top = y * 50 + "px";
                 wall.style.left = x * 50 + "px";
-                wall.style.backgroundImage = "url('img/wall.png')";
+                wall.style.backgroundImage = "url('img/iwall.png')";
         
                 
             } else if (grille[y][x] === 1) {            // Sol 
@@ -78,7 +80,7 @@ document.addEventListener("keydown", function (e) {
 
                 if (grille[posBlockTop - 1][posBlockLeft] == 1) {
                     bomberman.style.top = (posBlockTop - 1) * 50 + "px";
-                    bomberman.style.backgroundImage = "url('img/up.png')";
+                    bomberman.style.backgroundImage = "url('img/h-up.png')";
                     bomberman.style.backgroundSize = "50px";
                 }
                 bombermandie()
@@ -87,7 +89,7 @@ document.addEventListener("keydown", function (e) {
             case 39:
                 if (grille[posBlockTop][posBlockLeft + 1] == 1) {
                     bomberman.style.left = (posBlockLeft + 1) * 50 + "px";
-                    bomberman.style.backgroundImage = "url('img/right.png')";
+                    bomberman.style.backgroundImage = "url('img/h-right.png')";
                     bomberman.style.backgroundSize = "50px";
                 }
                 bombermandie()
@@ -97,7 +99,7 @@ document.addEventListener("keydown", function (e) {
 
                 if (grille[posBlockTop + 1][posBlockLeft] == 1) {
                     bomberman.style.top = (posBlockTop + 1) * 50 + "px";
-                    bomberman.style.backgroundImage = "url('img/down.png')";
+                    bomberman.style.backgroundImage = "url('img/h-down.png')";
                     bomberman.style.backgroundSize = "50px";
                 }
                 bombermandie()
@@ -106,7 +108,7 @@ document.addEventListener("keydown", function (e) {
             case 37:
                 if (grille[posBlockTop][posBlockLeft - 1] == 1) {
                     bomberman.style.left = (posBlockLeft - 1) * 50 + "px";
-                    bomberman.style.backgroundImage = "url('img/left.png')";
+                    bomberman.style.backgroundImage = "url('img/h-left.png')";
                     bomberman.style.backgroundSize = "50px";
                 }
                 bombermandie()
@@ -134,7 +136,7 @@ document.addEventListener("keydown", function (e) {
 
 // déplacement Ennemie
 const ennemie = document.getElementById("ennemie");
-
+random();
 function random() {
     var min = 1;
     var max = 4;
@@ -145,37 +147,34 @@ function random() {
     if (dir == 0) {     // ---------- Droite ---------
         if (grille[posBlockTop][posBlockLeft + 1] == 1) {
             ennemie.style.left = ennemie.offsetLeft + 50 + "px";
-            ennemie.style.backgroundImage = "url('img/ennemie.svg')";
+            ennemie.style.backgroundImage = "url('img/m-right.png')";
             ennemie.style.backgroundSize = "50px";
 
         } 
     } else if (dir == 1) {        // --------- Gauche ----------
         if (grille[posBlockTop][posBlockLeft - 1] == 1) {
             ennemie.style.left = ennemie.offsetLeft - 50 + "px";
-            ennemie.style.backgroundImage = "url('img/ennemie.svg')";
+            ennemie.style.backgroundImage = "url('img/m-left.png')";
             ennemie.style.backgroundSize = "50px";
 
 
         } 
-
+    } else if (dir == 2) {   // --------- Haut ----------
+        if (grille[posBlockTop - 1][posBlockLeft] == 1) { //console.log(grille[posBlockTop]);
+            ennemie.style.top = ennemie.offsetTop - 50 + "px";
+            ennemie.style.backgroundImage = "url('img/m-up.png')";
+            ennemie.style.backgroundSize = "50px";
+        } 
     } else if (dir == 3) {   // --------- Bas -------------- 
         if (grille[posBlockTop + 1][posBlockLeft] == 1) {
             ennemie.style.top = ennemie.offsetTop + 50 + "px";
-            ennemie.style.backgroundImage = "url('img/ennemie.svg')";
+            ennemie.style.backgroundImage = "url('img/m-down.png')";
             ennemie.style.backgroundSize = "50px";
         }
-
-    } else if (dir == 2) {   // --------- Haut ----------
-        if (grille[posBlockTop - 1][posBlockLeft] == 1) { //console.log(grille[posBlockTop]);
-        
-            ennemie.style.top = ennemie.offsetTop - 50 + "px";
-            ennemie.style.backgroundImage = "url('img/ennemie.svg')";
-            ennemie.style.backgroundSize = "50px";
-        } 
     }
 } // FIN IF
 
-setInterval(random, 1500);
+setInterval(random, 400);
  
 
 // ---------------------   Explosition  ------------------------ 
@@ -212,6 +211,7 @@ function boom(){
         explosion.style.backgroundSize = "50px";
 
         killEnnemie(explosion);
+        killplayer(explosion);
         breakwall(explosion);
 
     } if (grille[posBombTop - 1][posBombLeft] != 3 )  {
@@ -226,6 +226,7 @@ function boom(){
         explosion.style.backgroundSize = "50px";
 
         killEnnemie(explosion);
+        killplayer(explosion);
         breakwall(explosion);
 
     } if (grille[posBombTop][posBombLeft + 1] != 3  )  {
@@ -240,6 +241,7 @@ function boom(){
         explosion.style.backgroundSize = "50px";
 
         killEnnemie(explosion);
+        killplayer(explosion);
         breakwall(explosion);
 
     } if (grille[posBombTop][posBombLeft - 1] != 3  )  {
@@ -254,6 +256,7 @@ function boom(){
         explosion.style.backgroundSize = "50px";
 
         killEnnemie(explosion);
+        killplayer(explosion);
         breakwall(explosion);
     }
 }
@@ -276,7 +279,7 @@ function killEnnemie(explosion) {
             playerwin.style.display = "block";
             
 
-        } else if ((explosion.offsetTop === posEnnemieTop) && (explosion.offsetLeft === posEnnemieLeft)) {
+        } else if ((explosion.offsetTop === posEnnemieTop) && (explosion.offsetLeft === posEnnemieLeft) ) {
 
             ennemie.style.display = "none";
             playerwin.style.display = "block";
@@ -284,6 +287,30 @@ function killEnnemie(explosion) {
     }
 }
 
+// Explose player
+function killplayer(explosion) {
+    var posBombermanLeft =  bomberman.offsetLeft;
+    var posBombermanTop = bomberman.offsetTop;
+    var posBombLeft = bomb.offsetLeft;
+    var posBombTop = bomb.offsetTop;
+    var explosionLeft = explosion.offsetLeft;
+    
+    var element = document.getElementsByClassName('explosion');
+    for (var i = element.length - 1; i >= 0; i--) {
+
+        if ((posBombLeft === posBombermanLeft) && (posBombTop === posBombermanTop)) {
+
+            bomberman.style.display = "none";
+            playelose.style.display = "block";
+            
+
+        } else if ((explosion.offsetTop === posBombermanTop) && (explosion.offsetLeft === posBombermanLeft) ) {
+
+            bomberman.style.display = "none";
+            playerlose.style.display = "block";
+        }
+    }
+}
 // Break wall
 
 function breakwall(explosion) {
@@ -296,6 +323,8 @@ function breakwall(explosion) {
 
         wallDeleteLeft = element[i].offsetLeft / 50;
         wallDeleteTop = element[i].offsetTop / 50;
+
+
 
         if ((explosion.offsetTop / 50 == wallDeleteTop) && (explosion.offsetLeft / 50 == wallDeleteLeft)) {
 
@@ -310,6 +339,7 @@ function breakwall(explosion) {
     }
 }
 
+
 function bombermandie () {
 
     var posBombermanLeft = bomberman.offsetLeft / 50;
@@ -319,8 +349,10 @@ function bombermandie () {
 
     if (posBombermanTop == posEnnemieTop && posBombermanLeft == posEnnemieLeft) {
 
-        bomberman.style.display = "none";
         playerlose.style.display = "block";
+        bomberman.style.display = "none";
+        controlActive = false;
+        
 
         // return true
     }
